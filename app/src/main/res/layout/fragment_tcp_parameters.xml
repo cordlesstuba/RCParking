@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!--android:text="10.245.4.57"-->
+    <!--android:text="3001"-->
+
+
+    <LinearLayout
+        android:id="@+id/lin"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/edtTxtIP"
+            android:padding="10dp"
+            android:text="10.245.1.6"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ip.."/>
+
+        <EditText
+            android:id="@+id/edtTxtPort"
+            android:padding="10dp"
+            android:text="5008"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="PORT"
+            android:inputType="number"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtViewValider"
+        android:layout_below="@+id/lin"
+        android:layout_marginTop="5dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:background="@android:color/holo_green_light"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VALIDER"/>
+
+
+</RelativeLayout>

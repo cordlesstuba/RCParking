@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <View
+        android:id="@+id/viewLine1"
+        android:layout_below="@+id/titleUserSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"/>
+
+
+    <View
+        android:id="@+id/viewLine2"
+        android:layout_above="@+id/poweredBy"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"/>
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prisme_1"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitCenter"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prisme_2"
+        android:adjustViewBounds="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
+        android:layout_marginBottom="40dp"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
+        android:id="@+id/titleUserSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:padding="10dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:text="User \nAuthentification"/>
+
+    <com.rcp.rcparking.customViews.KeyboardView
+        android:id="@+id/keyboard"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/viewLine1"
+        android:layout_above="@+id/viewLine2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/poweredBy"
+        android:layout_above="@+id/footerUser"
+        android:layout_width="match_parent"
+        android:textColor="#3095B4"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Powered by"/>
+
+
+    <ImageView
+        android:id="@+id/footerUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_altran"
+        android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true"
+        android:maxWidth="30dp"
+        android:maxHeight="30dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="fitCenter"/>
+
+</RelativeLayout>

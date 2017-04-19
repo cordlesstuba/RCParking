@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    >
+
+
+    <View
+        android:id="@+id/viewLine1"
+        android:layout_below="@+id/titleUserSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"/>
+
+    <View
+        android:id="@+id/viewLine2"
+        android:layout_below="@+id/linearAddUser"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prisme_1"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitCenter"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prisme_2"
+        android:adjustViewBounds="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
+        android:layout_marginBottom="40dp"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
+        android:id="@+id/titleUserSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:padding="10dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:text="User \nselection"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/userLine1"
+        android:layout_below="@+id/viewLine1"
+        android:layout_width="match_parent"
+        android:padding="7dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="8dp"
+            android:src="@drawable/profil_1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/background_person"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:scaleType="fitCenter"/>
+
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="Michelangelo di Lodovico Buonarroti Simoni"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userLine2"
+        android:layout_below="@+id/userLine1"
+        android:layout_width="match_parent"
+        android:padding="7dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="8dp"
+            android:src="@drawable/profil_2"
+            android:adjustViewBounds="true"
+            android:background="@drawable/background_person"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:scaleType="fitCenter"/>
+
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="Dalida Iolanda Cristina Gigliotti"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/userLine3"
+        android:layout_below="@+id/userLine2"
+        android:layout_width="match_parent"
+        android:padding="7dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="8dp"
+            android:src="@drawable/profil_3"
+            android:adjustViewBounds="true"
+            android:background="@drawable/background_person"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:scaleType="fitCenter"/>
+
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="Leonardo di ser Piero da Vinci"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearAddUser"
+        android:layout_below="@+id/userLine3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add_icon"
+            android:adjustViewBounds="true"
+            android:maxWidth="30dp"
+            android:maxHeight="30dp"
+            android:scaleType="fitCenter"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add User"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/poweredBy"
+        android:layout_above="@+id/footerUser"
+        android:layout_width="match_parent"
+        android:textColor="#3095B4"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Powered by"/>
+
+
+    <ImageView
+        android:id="@+id/footerUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_altran"
+        android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true"
+        android:maxWidth="30dp"
+        android:maxHeight="30dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="fitCenter"/>
+
+
+</RelativeLayout>
