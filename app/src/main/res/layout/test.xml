@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="com.rcp.rcparking.activities.MainActivity">
+
+    <TextView
+        android:id="@+id/titleFragmentMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:padding="10dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:text="User \nselection"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_connexion"
+        android:adjustViewBounds="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:maxWidth="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:maxHeight="40dp"
+        android:scaleType="fitCenter"/>
+
+    <View
+        android:id="@+id/viewLine1"
+        android:layout_below="@+id/titleFragmentMain"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prisme_1"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitCenter"
+        />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_below="@+id/viewLine1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+</RelativeLayout>

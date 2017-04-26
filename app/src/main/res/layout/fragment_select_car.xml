@@ -67,6 +67,7 @@
         android:id="@+id/userCar1"
         android:layout_below="@+id/viewLine1"
         android:layout_width="match_parent"
+        android:background="@color/colorBackgroundModeSelected"
         android:padding="7dp"
         android:gravity="center_vertical"
         android:layout_height="wrap_content"
@@ -113,6 +114,7 @@
         android:layout_below="@+id/userCar1"
         android:layout_width="match_parent"
         android:padding="7dp"
+        android:background="@color/colorBackgroundUnselected"
         android:gravity="center_vertical"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -159,6 +161,7 @@
         android:layout_below="@+id/userCar2"
         android:layout_width="match_parent"
         android:padding="7dp"
+        android:background="@color/colorBackgroundUnselected"
         android:gravity="center_vertical"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

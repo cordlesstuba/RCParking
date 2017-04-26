@@ -7,6 +7,9 @@
     <color name="colorTxtPrimary">#3095B4</color>
     <color name="colorBackground">#F9F8F7</color>
     <color name="colorContourIconPerson">#5C7F92</color>
+    <color name="colorJoystickMain">#5C7F92</color>
 
+    <color name="colorBackgroundUnselected">#c4cbcf</color>
+    <color name="colorBackgroundModeSelected">#5C7F92</color>
 
 </resources>

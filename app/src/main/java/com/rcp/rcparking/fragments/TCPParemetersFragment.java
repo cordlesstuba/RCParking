@@ -37,17 +37,18 @@ public class TCPParemetersFragment extends Fragment {
 
         txtViewValider = (TextView) view.findViewById(R.id.txtViewValider);
 
+        txtViewValider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.ip = edtTxtIP.getText().toString();
+                MainActivity.port = Integer.parseInt(edtTxtPort.getText().toString());
 
-        txtViewValider.setOnClickListener(v -> {
-
-            MainActivity.ip = edtTxtIP.getText().toString();
-            MainActivity.port = Integer.parseInt(edtTxtPort.getText().toString());
-
-            SelectModeFragment selectModeFragment = new SelectModeFragment();
-            ((MainActivity)getActivity()).launchTCPConnexion();
-            ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectModeFragment,"");
-
+                SelectModeFragment selectModeFragment = new SelectModeFragment();
+                ((MainActivity)getActivity()).launchTCPConnexion();
+                ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectModeFragment,"");
+            }
         });
+
 
         return view;
     }

@@ -39,6 +39,10 @@ public class SplashScreenActivity extends Activity {
         poweredBy.setTypeface(face);
 
 
+        MainActivity.ip = "192.168.137.1";
+        MainActivity.port = 5009;
+
+        //MainActivity.launchTCPConnexion();
 
 
 
@@ -100,7 +104,7 @@ public class SplashScreenActivity extends Activity {
                     while(counter <= 100)
                     {
                         //Wait 850 milliseconds
-                        this.wait(10);
+                        this.wait(3);
                         //Increment the counter
                         counter++;
                         //Set the current progress.

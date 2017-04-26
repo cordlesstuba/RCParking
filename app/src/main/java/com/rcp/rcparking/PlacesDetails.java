@@ -33,7 +33,7 @@ public class PlacesDetails {
         PlacesDetails.PLACE_ID = PLACE_ID;
     }
 
-    public LatLng loadDetails(ImageView imageViewOk) throws URISyntaxException {
+    public LatLng loadDetails(final ImageView imageViewOk) throws URISyntaxException {
 
             URI uri = new URIBuilder()
                     .setScheme("https")
@@ -62,7 +62,7 @@ public class PlacesDetails {
 
                         latLng = new LatLng(lat,lng);
 
-                        LatLng latLngDepart = new LatLng(45.07298218551553,7.669914476573468);
+                        LatLng latLngDepart = new LatLng(45.0600981052287,7.655775882303715);
 
                         imageViewOk.setVisibility(View.VISIBLE);
 

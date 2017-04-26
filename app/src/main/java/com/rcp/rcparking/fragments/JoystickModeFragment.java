@@ -31,7 +31,7 @@ public class JoystickModeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_joystick_mode, null);
+        final View view = inflater.inflate(R.layout.fragment_joystick_mode, null);
 
 
         seekBar = (SeekBar) view.findViewById(R.id.seekBar);
@@ -40,56 +40,10 @@ public class JoystickModeFragment extends Fragment {
 
 
 
-
-
-
-        //joystick.setOnMoveListener(new JoystickView.OnMoveListener() { ... }, 17); // around 60/sec
-
-
-
-
-        JoyStick joyStick = (JoyStick) view.findViewById(R.id.joy1);
-
-        joyStick.setOnMoveListener(new JoyStick.JoyStickListener() {
-            @Override
-            public void onMove(double angle, double power, int direction) {
-
-                /*
-                String roundedAngle;
-
-                if (angle<0){
-                    DecimalFormat toTheFormat = new DecimalFormat("0.000");
-                    roundedAngle = toTheFormat.format(angle);
-                }else {
-                    DecimalFormat toTheFormat = new DecimalFormat("0.0000");
-                    roundedAngle = toTheFormat.format(angle);
-                }
-
-                Double d = new Double(power);
-                int roundedPower = d.intValue();
-
-                ((MainActivity)getActivity()).sendMessage(roundedAngle,roundedPower);
-
-*/
-            }
-
-            @Override
-            public void onTap() {
-
-            }
-
-            @Override
-            public void onDoubleTap() {
-
-            }
-        },17);
-
-
-
         seekBar.setMax(1000);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar, final int progress, boolean fromUser) {
                 txtViewValue.setText(String.valueOf(progress));
                 wait = progress;
 
@@ -99,7 +53,7 @@ public class JoystickModeFragment extends Fragment {
                     @Override
                     public void onMove(int angle, int strength) {
 
-                        System.out.println(progress);
+                        //System.out.println(progress);
 
                         String sAngle = String.format("%03d", angle);
                         String sStrength = String.format("%03d", strength);

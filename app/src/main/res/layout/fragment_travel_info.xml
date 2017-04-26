@@ -102,14 +102,14 @@
             android:src="@drawable/ic_road"/>
 
 
-        <com.seatgeek.placesautocomplete.PlacesAutocompleteTextView
+        <EditText
             android:id="@+id/txtViewLength"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:layout_weight="10"
             android:layout_marginRight="10dp"
-            app:pacv_googleMapsApiKey="AIzaSyAzFKnN_R1Sn2GLegJFcCO9QWIgBFFeUJ8"/>
+            android:gravity="center"/>
 
 
         <ImageView

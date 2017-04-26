@@ -1,7 +1,13 @@
 package com.rcp.rcparking.activities;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -10,7 +16,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.esotericsoftware.kryonet.Client;
+import com.esotericsoftware.kryonet.Connection;
+import com.esotericsoftware.kryonet.Listener;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.rcp.rcparking.R;
@@ -23,11 +33,15 @@ import com.rcp.rcparking.tcp.TcpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.math.RoundingMode;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.text.DecimalFormat;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.client.utils.URIBuilder;
@@ -36,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static String ip;
     public static int port;
+
+    public static int totalTime;
+    public static int takenTimeTravel;
+    public static int chauffe = 300;
 
     TcpClient mTcpClient;
 
@@ -48,20 +66,32 @@ public class MainActivity extends AppCompatActivity {
 
         //TCPParemetersFragment tcpParemetersFragment = new TCPParemetersFragment();
 
+        //launchTCPConnexion();
+
+
+        //System.out.println("iiiiiii " + getIpAddr());
+        //System.out.println("tetete" + getWifiApIpAddress());
+
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, selectUserFragment).commit();
-
+        createNotification();
     }
 
     public void launchTCPConnexion(){
+        System.out.println("launchTCPConnexion");
         new ConnectTask().execute("");
     }
+
+
+
 
 
     public class ConnectTask extends AsyncTask<String, String, TcpClient> {
 
         @Override
         protected TcpClient doInBackground(String... message) {
+
+
 
             //we create a TCPClient object
             mTcpClient = new TcpClient(new TcpClient.OnMessageReceived() {
@@ -77,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
+
+
         @Override
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
@@ -84,20 +116,30 @@ public class MainActivity extends AppCompatActivity {
             Log.d("test", "response " + values[0]);
             //process server response here....
 
+            System.out.println("tttttttttt "+ values[0]);
+
         }
 
     }
 
-    public void  sendMessage(String angle, String power){
+
+    public void sendMessage(String angle, String power){
         //DecimalFormat df = new DecimalFormat("#.###");
         //df.setRoundingMode(RoundingMode.CEILING);
 
-        System.out.println("bob");
+        //System.out.println("bob");
 
         if (mTcpClient != null) {
             long time= System.currentTimeMillis();
-            android.util.Log.i("bob", " Time value in millisecinds "+time);
+            //android.util.Log.i("bob", " Time value in millisecinds "+time);
             mTcpClient.sendMessage("angle : " + angle + " power : " + power);
+
+        }
+    }
+
+    public void sendModeMessage(String mode){
+        if (mTcpClient != null) {
+            mTcpClient.sendMessage("mode : " + mode);
         }
     }
 
@@ -115,13 +157,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void getPath(ProgressBar progressBar, Double lat_dep, Double lng_dep, Double lat_arr, Double lng_arr, int type_path) throws URISyntaxException, JSONException {
+    public void getPath(final ProgressBar progressBar, Double lat_dep, Double lng_dep, Double lat_arr, Double lng_arr, int type_path) throws URISyntaxException, JSONException {
 
         progressBar.setVisibility(View.VISIBLE);
 
         URI uri = new URIBuilder()
                 .setScheme("http")
-                .setHost("10.245.1.6")
+                .setHost("192.168.137.1")
                 .setPort(8000)
                 .setPath("/api/0.1/path")
                 .setParameter("lat_dep", String.valueOf(lat_dep))
@@ -147,9 +189,7 @@ public class MainActivity extends AppCompatActivity {
                     Double length = jsonObject.getJSONObject("properties").getDouble("length");
                     Double time = jsonObject.getJSONObject("properties").getDouble("time");
 
-
                     progressBar.setVisibility(View.INVISIBLE);
-
 
                     Travel travel = new Travel(length,time);
 
@@ -172,5 +212,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private final void createNotification(){
 
+        Intent intent = new Intent(this, MainActivity.class);
+        // use System.currentTimeMillis() to have a unique ID for the pending intent
+        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+
+        // build notification
+        // the addAction re-use the same intent to keep the example short
+        Notification n  = new Notification.Builder(this)
+                .setContentTitle("Altran Parking Control")
+                .setContentText("Alert : Engine Started")
+                .setSmallIcon(R.drawable.ic_notif_motor)
+                .setContentIntent(pIntent)
+                .setAutoCancel(true).build();
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.notify(0, n);
+    }
 }

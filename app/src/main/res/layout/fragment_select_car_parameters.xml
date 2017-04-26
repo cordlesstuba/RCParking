@@ -121,6 +121,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/txtViewMode1"
                             android:gravity="center"
                             android:layout_weight="50"
                             android:layout_margin="3dp"
@@ -128,10 +129,11 @@
                             android:padding="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorContourIconPerson"
+                            android:background="@color/colorBackgroundModeSelected"
                             android:text="Mode 1"
                             />
                         <TextView
+                            android:id="@+id/txtViewMode2"
                             android:gravity="center"
                             android:layout_weight="50"
                             android:layout_margin="3dp"
@@ -139,7 +141,7 @@
                             android:padding="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorContourIconPerson"
+                            android:background="@color/colorBackgroundUnselected"
                             android:text="Mode 2"
                             />
 
@@ -156,6 +158,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/txtViewMode3"
                             android:gravity="center"
                             android:layout_weight="50"
                             android:layout_margin="3dp"
@@ -163,10 +166,11 @@
                             android:padding="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorContourIconPerson"
+                            android:background="@color/colorBackgroundUnselected"
                             android:text="Mode 3"
                             />
                         <TextView
+                            android:id="@+id/txtViewMode4"
                             android:gravity="center"
                             android:layout_weight="50"
                             android:layout_margin="3dp"
@@ -174,7 +178,7 @@
                             android:padding="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorContourIconPerson"
+                            android:background="@color/colorBackgroundUnselected"
                             android:text="Mode 4"
                             />
 
@@ -238,6 +242,7 @@
 
 
                         <ImageView
+                            android:id="@+id/imgViewMoins"
                             android:layout_weight="40"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -249,11 +254,11 @@
                             android:scaleType="fitCenter"/>
 
                         <TextView
-
+                            android:id="@+id/txtViewTempe"
                             android:layout_weight="20"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="20.5°C"
+                            android:text="20.5"
                             android:layout_marginLeft="7dp"
                             android:layout_marginRight="7dp"
                             android:textSize="20sp"
@@ -264,6 +269,7 @@
 
 
                         <ImageView
+                            android:id="@+id/imgViewPlus"
                             android:layout_weight="40"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

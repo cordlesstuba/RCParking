@@ -2,6 +2,7 @@ package com.rcp.rcparking.fragments;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +12,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.rcp.rcparking.Address;
 import com.rcp.rcparking.Addresses;
 import com.rcp.rcparking.PlacesDetails;
 import com.rcp.rcparking.R;
 import com.rcp.rcparking.activities.MainActivity;
+import com.seatgeek.placesautocomplete.OnPlaceSelectedListener;
 import com.seatgeek.placesautocomplete.PlacesAutocompleteTextView;
+import com.seatgeek.placesautocomplete.model.Place;
 
 import org.json.JSONException;
 
@@ -70,6 +74,8 @@ public class SelectAddressFragment extends Fragment {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
 
+                        MainActivity.totalTime = selectedHour * 3600 + selectedMinute * 60;
+
                         DecimalFormat formatter = new DecimalFormat("00");
 
                         String sHour = formatter.format(selectedHour);
@@ -85,40 +91,49 @@ public class SelectAddressFragment extends Fragment {
         });
 
         autocompleteTxtViewDestination = (PlacesAutocompleteTextView) view.findViewById(R.id.autocompleteTxtViewDestination);
-        autocompleteTxtViewDestination.setOnPlaceSelectedListener(
-                place -> {
 
-                    ((MainActivity)getActivity()).HIDE_KEYBOARD(getActivity());
+        autocompleteTxtViewDestination.setOnPlaceSelectedListener(new OnPlaceSelectedListener() {
+            @Override
+            public void onPlaceSelected(@NonNull Place place) {
+                ((MainActivity)getActivity()).HIDE_KEYBOARD(getActivity());
 
-                    PlacesDetails placesDetails = new PlacesDetails(place.place_id);
-                    try {
-                        placesDetails.loadDetails(imgViewValidateDestination);
-                    } catch (URISyntaxException e) {
-                        e.printStackTrace();
-                    }
-
+                PlacesDetails placesDetails = new PlacesDetails(place.place_id);
+                try {
+                    placesDetails.loadDetails(imgViewValidateDestination);
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
                 }
+            }
+        });
 
-        );
+
 
 
         imgValide = (ImageView) view.findViewById(R.id.imgValide);
-        imgValide.setOnClickListener(v -> {
+        imgValide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            imgValide.setVisibility(View.INVISIBLE);
+                if (autocompleteTxtViewDestination.getText().toString().equals("")||edtTxtTimeSelect.getText().toString().equals(""))
+                    Toast.makeText(getContext(),"Please select the asked informations..",Toast.LENGTH_SHORT).show();
+                else {
+                    imgValide.setVisibility(View.INVISIBLE);
 
-            try {
-                ((MainActivity)getActivity()).getPath(progressBar,
-                        Addresses.getAddressDepart().getLatLng().latitude,
-                        Addresses.getAddressDepart().getLatLng().longitude,
-                        Addresses.getAddressArrivee().getLatLng().latitude,
-                        Addresses.getAddressArrivee().getLatLng().longitude,
-                        0);
-            } catch (URISyntaxException | JSONException e) {
-                e.printStackTrace();
+                    try {
+                        ((MainActivity)getActivity()).getPath(progressBar,
+                                Addresses.getAddressDepart().getLatLng().latitude,
+                                Addresses.getAddressDepart().getLatLng().longitude,
+                                Addresses.getAddressArrivee().getLatLng().latitude,
+                                Addresses.getAddressArrivee().getLatLng().longitude,
+                                0);
+                    } catch (URISyntaxException | JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
-
         });
+
 
         return view;
 

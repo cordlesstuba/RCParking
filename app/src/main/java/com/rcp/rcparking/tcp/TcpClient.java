@@ -71,6 +71,7 @@ public class TcpClient {
 
     public void run() {
 
+        System.out.println("launch"+SERVER_IP+ " "+SERVER_PORT);
         mRun = true;
 
         try {
@@ -95,6 +96,8 @@ public class TcpClient {
                 while (mRun) {
 
                     mServerMessage = mBufferIn.readLine();
+
+                    System.out.println("sizesize" + mServerMessage.length());
 
                     if (mServerMessage != null && mMessageListener != null) {
                         //call the method messageReceived from MyActivity class

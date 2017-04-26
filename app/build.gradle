@@ -11,9 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        jackOptions {
-            enabled true
-        }
+
     }
 
 
@@ -24,8 +22,7 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+
     }
 }
 
@@ -46,4 +43,5 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
 
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
+    compile "com.esotericsoftware:kryonet:2.22.0-RC1"
 }

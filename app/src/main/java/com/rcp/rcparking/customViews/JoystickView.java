@@ -115,9 +115,6 @@ public class JoystickView extends View
     // DRAWING
     private Paint mPaintCircleButton;
     private Paint mPaintCircleBorder;
-
-    
-
     private Paint mPaintBackground;
 
     private Paint mPaintBitmapButton;

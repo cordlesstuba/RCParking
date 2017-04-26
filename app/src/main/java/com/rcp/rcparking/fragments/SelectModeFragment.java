@@ -41,20 +41,19 @@ public class SelectModeFragment extends Fragment implements View.OnClickListener
         switch (v.getId()){
 
             case R.id.linearLayoutRemoteCtrl:
-
+                ((MainActivity)getActivity()).sendModeMessage("joy");
                 JoystickModeFragment joystickModeFragment = new JoystickModeFragment();
                 ((MainActivity)getActivity()).replaceFragmentWithAnimation(joystickModeFragment,"");
 
                 break;
 
             case R.id.linearLayoutValetCtrl:
-
+                ((MainActivity)getActivity()).sendModeMessage("valet");
                 SelectAddressFragment selectAddressFragment = new SelectAddressFragment();
                 ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectAddressFragment,"");
 
                 break;
 
         }
-
     }
 }

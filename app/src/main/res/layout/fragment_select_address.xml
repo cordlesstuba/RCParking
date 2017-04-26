@@ -106,6 +106,8 @@
             android:id="@+id/autocompleteTxtViewDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Select the destination.."
+            android:gravity="center"
             android:singleLine="true"
             android:layout_weight="10"
             android:layout_marginRight="10dp"
@@ -168,7 +170,7 @@
             android:id="@+id/edtTxtTimeSelect"
             android:layout_weight="10"
             android:layout_width="match_parent"
-            android:text="20:10"
+            android:hint="Select an hour.."
             android:gravity="center"
             android:layout_height="wrap_content" />
 
