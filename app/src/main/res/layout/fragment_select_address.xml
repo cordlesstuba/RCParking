@@ -40,7 +40,7 @@
             android:layout_weight="45"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/research_icon"/>
+            android:src="@drawable/ic_search"/>
 
 
         <com.seatgeek.placesautocomplete.PlacesAutocompleteTextView
@@ -105,7 +105,7 @@
             android:layout_weight="45"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/time_icon"/>
+            android:src="@drawable/ic_clock"/>
 
         <EditText
             android:id="@+id/edtTxtTimeSelect"

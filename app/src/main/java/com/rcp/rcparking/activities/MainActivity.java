@@ -1,6 +1,7 @@
 package com.rcp.rcparking.activities;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //createAlert();
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -160,7 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (values[0].equals("car_ready")){
-                createNotification("Car ready !");
+                //createNotification("Car ready !");
+                createAlert();
             }
 
 
@@ -468,6 +470,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    public void createAlert(){
+
+        // custom dialog
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.alert_custom);
+        dialog.setTitle("Parking Control");
+
+        // set the custom dialog components - text, image and button
+       // TextView text = (TextView) dialog.findViewById(R.id.text);
+        //text.setText("Android custom dialog example!");
+
+       /* Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });*/
+
+        dialog.show();
+    }
+
 
 
 }
