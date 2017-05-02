@@ -1,6 +1,7 @@
 package com.rcp.rcparking.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,8 @@ public class JoystickModeFragment extends Fragment {
 
     int wait = 10;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_joystick_mode, null);
@@ -38,22 +41,23 @@ public class JoystickModeFragment extends Fragment {
         txtViewValue = (TextView) view.findViewById(R.id.txtViewValue);
 
 
+        final JoystickView joystick = (JoystickView) view.findViewById(R.id.jostickView);
 
 
-        seekBar.setMax(1000);
+
+        seekBar.setMax(700);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, final int progress, boolean fromUser) {
                 txtViewValue.setText(String.valueOf(progress));
                 wait = progress;
 
-
-                JoystickView joystick = (JoystickView) view.findViewById(R.id.jostickView);
                 joystick.setOnMoveListener(new JoystickView.OnMoveListener() {
                     @Override
                     public void onMove(int angle, int strength) {
 
-                        //System.out.println(progress);
+                        System.out.println("angle : " + angle);
+
 
                         String sAngle = String.format("%03d", angle);
                         String sStrength = String.format("%03d", strength);
@@ -61,11 +65,7 @@ public class JoystickModeFragment extends Fragment {
                         ((MainActivity)getActivity()).sendMessage(sAngle,sStrength);
 
                     }
-                }, progress);
-
-
-
-
+                }, wait);
             }
 
             @Override
@@ -78,6 +78,11 @@ public class JoystickModeFragment extends Fragment {
 
             }
         });
+
+
+
+
+
 
         return view;
     }

@@ -14,6 +14,15 @@ import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.rcp.rcparking.Address;
 import com.rcp.rcparking.Addresses;
 import com.rcp.rcparking.PlacesDetails;
@@ -44,6 +53,7 @@ public class SelectAddressFragment extends Fragment {
     ImageView imgViewValidateDestination;
 
     EditText edtTxtTimeSelect;
+
 
 
     @Override
@@ -114,7 +124,7 @@ public class SelectAddressFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (autocompleteTxtViewDestination.getText().toString().equals("")||edtTxtTimeSelect.getText().toString().equals(""))
+                if (autocompleteTxtViewDestination.getText().toString().equals("")||edtTxtTimeSelect.getText().toString().equals("")|| Addresses.getAddressArrivee() == null)
                     Toast.makeText(getContext(),"Please select the asked informations..",Toast.LENGTH_SHORT).show();
                 else {
                     imgValide.setVisibility(View.INVISIBLE);
@@ -133,6 +143,10 @@ public class SelectAddressFragment extends Fragment {
 
             }
         });
+
+
+
+
 
 
         return view;

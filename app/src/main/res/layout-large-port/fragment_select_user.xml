@@ -3,33 +3,34 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="25dp"
     >
 
 
     <LinearLayout
         android:id="@+id/userLine1"
         android:layout_width="match_parent"
-        android:padding="7dp"
+        android:padding="27dp"
         android:background="@color/colorBackground"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:padding="8dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:padding="18dp"
             android:src="@drawable/profil_1"
             android:adjustViewBounds="true"
             android:background="@drawable/background_person"
-            android:maxWidth="80dp"
-            android:maxHeight="80dp"
+            android:maxWidth="180dp"
+            android:maxHeight="180dp"
             android:scaleType="fitCenter"/>
 
 
         <TextView
             android:padding="10dp"
             android:layout_width="match_parent"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:layout_height="wrap_content"
             android:text="Michelangelo di Lodovico Buonarroti Simoni"/>
 
@@ -39,28 +40,28 @@
         android:id="@+id/userLine2"
         android:layout_below="@+id/userLine1"
         android:layout_width="match_parent"
-        android:padding="7dp"
+        android:padding="27dp"
         android:background="@color/colorBackground"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:padding="8dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:padding="18dp"
             android:src="@drawable/profil_2"
             android:adjustViewBounds="true"
             android:background="@drawable/background_person"
-            android:maxWidth="80dp"
-            android:maxHeight="80dp"
+            android:maxWidth="180dp"
+            android:maxHeight="180dp"
             android:scaleType="fitCenter"/>
 
 
         <TextView
             android:padding="10dp"
             android:layout_width="match_parent"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:layout_height="wrap_content"
             android:text="Dalida Iolanda Cristina Gigliotti"/>
 
@@ -71,28 +72,28 @@
         android:id="@+id/userLine3"
         android:layout_below="@+id/userLine2"
         android:layout_width="match_parent"
-        android:padding="7dp"
+        android:padding="27dp"
         android:background="@color/colorBackground"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:padding="8dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:padding="18dp"
             android:src="@drawable/profil_3"
             android:adjustViewBounds="true"
             android:background="@drawable/background_person"
-            android:maxWidth="80dp"
-            android:maxHeight="80dp"
+            android:maxWidth="180dp"
+            android:maxHeight="180dp"
             android:scaleType="fitCenter"/>
 
 
         <TextView
             android:padding="10dp"
             android:layout_width="match_parent"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:layout_height="wrap_content"
             android:text="Leonardo di ser Piero da Vinci"/>
 
@@ -113,12 +114,12 @@
             android:layout_height="wrap_content"
             android:src="@drawable/add_icon"
             android:adjustViewBounds="true"
-            android:maxWidth="30dp"
-            android:maxHeight="30dp"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
             android:scaleType="fitCenter"/>
 
         <TextView
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

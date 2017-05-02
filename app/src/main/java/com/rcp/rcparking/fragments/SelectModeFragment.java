@@ -1,6 +1,8 @@
 package com.rcp.rcparking.fragments;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.speech.tts.Voice;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,19 +43,29 @@ public class SelectModeFragment extends Fragment implements View.OnClickListener
         switch (v.getId()){
 
             case R.id.linearLayoutRemoteCtrl:
+
                 ((MainActivity)getActivity()).sendModeMessage("joy");
+
                 JoystickModeFragment joystickModeFragment = new JoystickModeFragment();
-                ((MainActivity)getActivity()).replaceFragmentWithAnimation(joystickModeFragment,"");
+                ((MainActivity)getActivity()).replaceFragmentWithAnimation(joystickModeFragment,"joystickModeFragment");
+
 
                 break;
 
             case R.id.linearLayoutValetCtrl:
+
                 ((MainActivity)getActivity()).sendModeMessage("valet");
+
                 SelectAddressFragment selectAddressFragment = new SelectAddressFragment();
-                ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectAddressFragment,"");
+                ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectAddressFragment,"selectAddressFragment");
+
+                //SelectCarFragment selectCarFragment = new SelectCarFragment();
+                //((MainActivity)getActivity()).replaceFragmentWithAnimation(selectCarFragment,"selectCarFragment");
 
                 break;
 
         }
     }
+
+
 }

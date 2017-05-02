@@ -31,8 +31,6 @@ public class SelectUserFragment extends Fragment implements View.OnClickListener
         line1.setOnClickListener(this);
 
 
-
-
         return view;
 
     }
@@ -43,7 +41,7 @@ public class SelectUserFragment extends Fragment implements View.OnClickListener
 
             case R.id.userLine1:
                 AuthenticationFragment authenticationFragment = new AuthenticationFragment();
-                ((MainActivity)getActivity()).replaceFragmentWithAnimation(authenticationFragment,"");
+                ((MainActivity)getActivity()).replaceFragmentWithAnimation(authenticationFragment,"authenticationFragment");
                 break;
 
         }

@@ -26,7 +26,7 @@ public class Addresses {
     }
 
     public static Address getAddressArrivee() {
-        System.out.println(addressArrivee.latLng);
+        //System.out.println(addressArrivee.latLng);
         return addressArrivee;
     }
 

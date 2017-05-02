@@ -10,7 +10,7 @@
         android:id="@+id/titleFragmentMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="35sp"
+        android:textSize="45sp"
         android:padding="10dp"
         android:layout_marginTop="25dp"
         android:gravity="center"

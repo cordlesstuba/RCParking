@@ -33,7 +33,7 @@ public class SelectCarFragment extends Fragment implements View.OnClickListener{
             public void onClick(View v) {
 
                 SelectCarParametersFragment selectCarParametersFragment = new SelectCarParametersFragment();
-                ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectCarParametersFragment,"");
+                ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectCarParametersFragment,"selectCarParametersFragment");
 
             }
         });

@@ -1,7 +1,9 @@
 package com.rcp.rcparking.tcp;
 
 import android.util.Log;
+import android.widget.ImageView;
 
+import com.rcp.rcparking.R;
 import com.rcp.rcparking.activities.MainActivity;
 
 import java.io.BufferedReader;
@@ -10,7 +12,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.channels.SocketChannel;
 
 /**
  * Created by gcarves on 11/04/2017.
@@ -18,6 +22,8 @@ import java.net.Socket;
 
 
 public class TcpClient {
+
+
 
     public static final String SERVER_IP = MainActivity.ip; //server IP address
     public static final int SERVER_PORT = MainActivity.port;
@@ -31,13 +37,17 @@ public class TcpClient {
     private PrintWriter mBufferOut;
     // used to read messages from the server
     private BufferedReader mBufferIn;
+    Socket socket =  null;
 
+    ImageView connection = null;
     /**
      * Constructor of the class. OnMessagedReceived listens for the messages received from server
      */
-    public TcpClient(OnMessageReceived listener) {
+    public TcpClient(OnMessageReceived listener, ImageView connection) {
         mMessageListener = listener;
+        this.connection = connection;
     }
+
 
     /**
      * Sends the message entered by client to the server
@@ -71,7 +81,22 @@ public class TcpClient {
 
     public void run() {
 
-        System.out.println("launch"+SERVER_IP+ " "+SERVER_PORT);
+       Thread thread = new Thread(){
+            @Override
+            public void run() {
+                try {
+                    connection.setImageResource(R.drawable.circle_connexion_ok);
+
+                }catch (Exception e){
+
+                }
+            }
+        };
+        thread.start();
+
+
+
+        System.out.println("launch " + SERVER_IP + " " + SERVER_PORT);
         mRun = true;
 
         try {
@@ -81,7 +106,7 @@ public class TcpClient {
             Log.e("TCP Client", "C: Connecting...");
 
             //create a socket to make the connection with the server
-            Socket socket = new Socket(serverAddr, SERVER_PORT);
+            socket = new Socket(serverAddr, SERVER_PORT);
 
             try {
 
@@ -97,7 +122,8 @@ public class TcpClient {
 
                     mServerMessage = mBufferIn.readLine();
 
-                    System.out.println("sizesize" + mServerMessage.length());
+
+                    System.out.println("sizeServerMessage " + mServerMessage.length());
 
                     if (mServerMessage != null && mMessageListener != null) {
                         //call the method messageReceived from MyActivity class
@@ -106,11 +132,26 @@ public class TcpClient {
 
                 }
 
+
                 Log.e("RESPONSE FROM SERVER", "S: Received Message: '" + mServerMessage + "'");
 
             } catch (Exception e) {
 
                 Log.e("TCP", "S: Error", e);
+
+                Thread thread3 = new Thread(){
+                    @Override
+                    public void run() {
+                        try {
+                            connection.setImageResource(R.drawable.circle_connexion);
+
+                        }catch (Exception e){
+
+                        }
+                    }
+                };
+                thread3.start();
+
 
             } finally {
                 //the socket must be closed. It is not possible to reconnect to this socket
@@ -120,7 +161,21 @@ public class TcpClient {
 
         } catch (Exception e) {
 
+            Thread thread2 = new Thread(){
+                @Override
+                public void run() {
+                    try {
+                        connection.setImageResource(R.drawable.circle_connexion);
+
+                    }catch (Exception e){
+
+                    }
+                }
+            };
+            thread2.start();
+
             Log.e("TCP", "C: Error", e);
+
 
         }
 
@@ -131,5 +186,16 @@ public class TcpClient {
     public interface OnMessageReceived {
         public void messageReceived(String message);
     }
+
+
+    public boolean isClosed(){
+
+        if (socket!=null)
+            return socket.isClosed();
+        else
+            return true;
+
+    }
+
 
 }

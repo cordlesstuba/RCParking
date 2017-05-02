@@ -10,8 +10,8 @@
         android:id="@+id/txtViewDestination"
         android:layout_below="@+id/viewLine1"
         android:gravity="center"
-        android:textSize="30sp"
-        android:layout_marginTop="50dp"
+        android:textSize="50sp"
+        android:layout_marginTop="150dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Your car will be ready at"/>
@@ -22,10 +22,10 @@
         android:background="@drawable/background_person"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="118dp"
         android:orientation="horizontal"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginRight="116dp"
+        android:layout_marginLeft="116dp"
         android:gravity="center_vertical"
         android:padding="6dp"
         android:layout_below="@+id/txtViewDestination">
@@ -53,7 +53,7 @@
 
 
     <TextView
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="116dp"
         android:gravity="center"
         android:textSize="30sp"
         android:layout_below="@+id/linearValetReady"

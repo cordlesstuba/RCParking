@@ -1,6 +1,7 @@
 package com.rcp.rcparking.fragments;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ public class SelectCarParametersFragment extends Fragment implements View.OnClic
     ImageView imgValide, imgViewPlus, imgViewMoins;
     TextView txtViewTempe;
 
-    TextView txtViewMode1, txtViewMode2, txtViewMode3, txtViewMode4;
+    TextView txtViewMode1, txtViewMode2, txtViewMode3;
 
 
     @Override
@@ -31,14 +32,21 @@ public class SelectCarParametersFragment extends Fragment implements View.OnClic
 
         txtViewTempe = (TextView) view.findViewById(R.id.txtViewTempe);
 
+        MainActivity.CAR_TEMP = String.valueOf("20.5");
+        MainActivity.CAR_MODE = "1";
+
         imgValide = (ImageView) view.findViewById(R.id.imgValide);
         imgValide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                EndValetFragment endValetFragment = new EndValetFragment();
-                ((MainActivity)getActivity()).replaceFragmentWithAnimation(endValetFragment,"");
+                ((MainActivity)getActivity()).sendTramParameters(MainActivity.CAR_MODE + MainActivity.CAR_TEMP);
 
+                //SendMessage sendMessageCarParameters = new SendMessage();
+                //sendMessageCarParameters.execute(MainActivity.CAR_MODE + MainActivity.CAR_TEMP);
+
+                EndValetFragment endValetFragment = new EndValetFragment();
+                ((MainActivity)getActivity()).replaceFragmentWithAnimation(endValetFragment,"endValetFragment");
             }
         });
 
@@ -50,6 +58,7 @@ public class SelectCarParametersFragment extends Fragment implements View.OnClic
                 if (tempe < 25){
                     double newTempe = tempe + 0.5;
                     txtViewTempe.setText(String.valueOf(newTempe));
+                    MainActivity.CAR_TEMP = String.valueOf(newTempe);
                 }
             }
         });
@@ -63,6 +72,7 @@ public class SelectCarParametersFragment extends Fragment implements View.OnClic
                 if (tempe > 15){
                     double newTempe = tempe - 0.5;
                     txtViewTempe.setText(String.valueOf(newTempe));
+                    MainActivity.CAR_TEMP = String.valueOf(newTempe);
                 }
 
             }
@@ -71,17 +81,14 @@ public class SelectCarParametersFragment extends Fragment implements View.OnClic
         txtViewMode1 = (TextView) view.findViewById(R.id.txtViewMode1);
         txtViewMode2 = (TextView) view.findViewById(R.id.txtViewMode2);
         txtViewMode3 = (TextView) view.findViewById(R.id.txtViewMode3);
-        txtViewMode4 = (TextView) view.findViewById(R.id.txtViewMode4);
 
         txtViewMode1.setOnClickListener(this);
         txtViewMode2.setOnClickListener(this);
         txtViewMode3.setOnClickListener(this);
-        txtViewMode4.setOnClickListener(this);
 
         return view;
 
     }
-
 
     @Override
     public void onClick(View v) {
@@ -89,34 +96,36 @@ public class SelectCarParametersFragment extends Fragment implements View.OnClic
         switch (v.getId()){
 
             case R.id.txtViewMode1:
+                MainActivity.CAR_MODE = "1";
                 txtViewMode1.setBackgroundColor(getResources().getColor(R.color.colorBackgroundModeSelected));
                 txtViewMode2.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
                 txtViewMode3.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
-                txtViewMode4.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
                 break;
 
             case R.id.txtViewMode2:
+                MainActivity.CAR_MODE = "2";
                 txtViewMode2.setBackgroundColor(getResources().getColor(R.color.colorBackgroundModeSelected));
                 txtViewMode1.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
                 txtViewMode3.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
-                txtViewMode4.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
                 break;
 
             case R.id.txtViewMode3:
+                MainActivity.CAR_MODE = "3";
                 txtViewMode3.setBackgroundColor(getResources().getColor(R.color.colorBackgroundModeSelected));
                 txtViewMode2.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
-                txtViewMode1.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
-                txtViewMode4.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
-                break;
-
-            case R.id.txtViewMode4:
-                txtViewMode4.setBackgroundColor(getResources().getColor(R.color.colorBackgroundModeSelected));
-                txtViewMode2.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
-                txtViewMode3.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
                 txtViewMode1.setBackgroundColor(getResources().getColor(R.color.colorBackgroundUnselected));
                 break;
         }
     }
 
 
+    public class SendMessage extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+
+            ((MainActivity)getActivity()).sendTramParameters(params[0]);
+            return null;
+        }
+    }
 }

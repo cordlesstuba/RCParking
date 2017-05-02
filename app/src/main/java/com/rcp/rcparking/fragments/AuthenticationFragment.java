@@ -51,7 +51,7 @@ public class AuthenticationFragment extends Fragment {
                         SelectModeFragment selectModeFragment = new SelectModeFragment();
 
                         ((MainActivity)getActivity()).launchTCPConnexion();
-                        ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectModeFragment,"");
+                        ((MainActivity)getActivity()).replaceFragmentWithAnimation(selectModeFragment,"selectModeFragment");
 
                     }
 
@@ -77,10 +77,6 @@ public class AuthenticationFragment extends Fragment {
                 }
             }
         });
-
-
-
-
 
         return view;
     }

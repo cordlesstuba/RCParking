@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Parking Control</string>
 
+    <string name="IP_LOCAL">192.168.137.1</string>
+    <integer name="PORT_TCP">3001</integer>
+    <integer name="PORT_HTTP">8000</integer>
+
+
+
+
     <string name="number_zero">0</string>
     <string name="number_one">1</string>
     <string name="number_two">2</string>
