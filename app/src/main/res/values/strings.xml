@@ -21,16 +21,16 @@
     <string name="btn_clear">Clear</string>
     <string name="btn_backspace">Back</string>
 
-    <string name="user_1">John Snow</string>
-    <string name="user_2">Sansa Stark</string>
-    <string name="user_3">Arya Stark</string>
+    <string name="user_1">Ben</string>
+    <string name="user_2">Mary</string>
+    <string name="user_3">Bob</string>
 
     <string name="car_1">Renault Megane</string>
     <string name="car_2">Citroën CXperience</string>
-    <string name="car_3">Rocket car</string>
+    <string name="car_3">Peugeot Instinct</string>
 
-    <string name="car_1_specs">Autonomy : 750 km \nFuel Level :  90% \nKilometrage : 13 865 km</string>
-    <string name="car_2_specs">Autonomy : 350 km \nFuel Level :  45% \nKilometrage : 34 582 km</string>
-    <string name="car_3_specs">Autonomy : 500 km \nFuel Level :  100% \nKilometrage : 1 564 km</string>
+    <string name="car_1_specs">Autonomy : 754 km \nFuel Level :  91% \nKilometrage : 13 865 km</string>
+    <string name="car_2_specs">Autonomy : 352 km \nFuel Level :  46% \nKilometrage : 34 582 km</string>
+    <string name="car_3_specs">Autonomy : 517 km \nFuel Level :  53% \nKilometrage : 1 564 km</string>
 
 </resources>
