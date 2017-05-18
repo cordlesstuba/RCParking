@@ -38,7 +38,7 @@
         />
 
     <TextView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/titleSplashScreen"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -54,8 +54,8 @@
         android:id="@+id/logo_maserati"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/maserati_logo"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/logo_altran"
         android:layout_below="@+id/titleSplashScreen"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"
@@ -74,7 +74,6 @@
         custom:arc_finished_color="#3095B4"
         custom:arc_unfinished_color="@color/colorBackground"
         android:id="@+id/arc_progress"
-        android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
         android:layout_width="90dp"
         android:layout_height="90dp"

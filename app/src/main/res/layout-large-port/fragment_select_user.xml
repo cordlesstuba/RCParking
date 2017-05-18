@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:textSize="40sp"
             android:layout_height="wrap_content"
-            android:text="Michelangelo di Lodovico Buonarroti Simoni"/>
+            android:text="@string/user_1"/>
 
     </LinearLayout>
 
@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:textSize="40sp"
             android:layout_height="wrap_content"
-            android:text="Dalida Iolanda Cristina Gigliotti"/>
+            android:text="@string/user_2"/>
 
     </LinearLayout>
 
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:textSize="40sp"
             android:layout_height="wrap_content"
-            android:text="Leonardo di ser Piero da Vinci"/>
+            android:text="@string/user_3"/>
 
     </LinearLayout>
 

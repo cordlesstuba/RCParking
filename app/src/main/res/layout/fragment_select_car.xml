@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:src="@drawable/maserati_1"
+            android:src="@drawable/car_1"
             android:adjustViewBounds="true"
             android:background="@drawable/background_person"
             android:maxWidth="130dp"
@@ -40,13 +40,13 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Maserati Levante"/>
+                android:text="@string/car_1"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:textSize="16sp"
                 android:layout_height="wrap_content"
-                android:text="Autonomy : 750 km \nFuel Level :  80% \nKilometrage : 10 000 km"/>
+                android:text="@string/car_1_specs"/>
 
         </LinearLayout>
 
@@ -74,7 +74,7 @@
             android:maxWidth="130dp"
             android:padding="8dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/maserati_2" />
+            android:src="@drawable/car_2" />
 
         <LinearLayout
             android:layout_marginLeft="7dp"
@@ -87,13 +87,13 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Maserati Quattroporte"/>
+                android:text="@string/car_2"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:textSize="16sp"
                 android:layout_height="wrap_content"
-                android:text="Autonomy : 750 km \nFuel Level :  80% \nKilometrage : 10 000 km"/>
+                android:text="@string/car_2_specs"/>
 
         </LinearLayout>
 
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:src="@drawable/maserati_3"
+            android:src="@drawable/car_3"
             android:adjustViewBounds="true"
             android:background="@drawable/background_person"
             android:maxWidth="130dp"
@@ -133,13 +133,13 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Maserati Gran Turismo"/>
+                android:text="@string/car_3"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:textSize="16sp"
                 android:layout_height="wrap_content"
-                android:text="Autonomy : 750 km \nFuel Level :  80% \nKilometrage : 10 000 km"/>
+                android:text="@string/car_3_specs"/>
 
         </LinearLayout>
 
